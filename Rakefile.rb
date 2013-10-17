@@ -1,14 +1,35 @@
 require 'rubygems' 
 require 'bundler/setup'
+require 'version_bumper'
 
 require 'albacore'
  
-task :default => [:msbuild]
+Albacore.configure do |config|
+  config.mstest.command = "C:/Program\ Files\ (x86)/Microsoft Visual Studio 11.0/Common7/IDE/mstest.exe"
+  config.msbuild.targets = [ :Clean, :Build ]
+end
  
-msbuild :msbuild do |msb|
+task :default => [:msbuild, :mstest]
+ 
+desc "Builds the project using the MSBuild project files"
+msbuild :msbuild => [:assemblyinfo] do |msb|
   msb.properties = { :configuration => :Debug }
-  msb.targets = [ :Clean, :Build ]      
   msb.solution = "src/iqt-teamcity-test.sln"
+end
+ 
+desc "Runs the tests in the AlbacoreDemo.Tests project"
+mstest :mstest => [:msbuild] do |mstest|
+  mstest.assemblies "src/iqt-teamcity-test.Test/bin/Debug/iqt-teamcity-test.Test.dll"
+end
+ 
+desc "Updates AssemblyInfo version number"
+assemblyinfo :assemblyinfo do |asm|
+  asm.version = bumper_version.to_s
+  asm.file_version = bumper_version.to_s
+  asm.company_name = "Interfleet"
+  asm.product_name = "TeamCity Test"
+  asm.copyright = "Nikolai Kanaev"
+  asm.output_file = "src/iqt-teamcity-test/Properties/AssemblyInfo.cs"
 end
 
 task :gittask do
@@ -20,6 +41,6 @@ task :gittask do
   system(cmd2)
 end
 
-task :release => [:msbuild, :gittask] do
+task :release => [:default, :gittask] do
   puts 'What happens in TeamCity stays in TeamCity.'
 end

@@ -8,6 +8,7 @@ GEM
       mini_portile (~> 0.5.0)
     rake (10.1.0)
     rubyzip (0.9.9)
+    version_bumper (0.3.0)
 
 PLATFORMS
   x86-mingw32
@@ -17,3 +18,4 @@ DEPENDENCIES
   nokogiri
   rake
   rubyzip (~> 0.9.9)
+  version_bumper

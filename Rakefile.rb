@@ -6,6 +6,8 @@ $: << './'
 require 'version_bumper'
 require 'albacore'
 require 'erb'
+require 'yaml'
+# require 'nokogiri'
 
 require 'buildscripts/morph'
 

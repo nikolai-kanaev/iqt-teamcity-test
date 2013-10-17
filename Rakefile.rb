@@ -11,6 +11,10 @@ require 'yaml'
 
 require 'buildscripts/morph'
 
+task :my_morph do
+  
+end
+
 morph :app_morph do |m|
   YAML::ENGINE.yamler = "psych"
   settings = YAML.load(File.open(File.join('src', 'Deployment', 'appconfig.yml')))

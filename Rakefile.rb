@@ -1,15 +1,27 @@
 require 'rubygems' 
 require 'bundler/setup'
-require 'version_bumper'
 
+$: << './'
+
+require 'version_bumper'
 require 'albacore'
+require 'erb'
+
+require 'buildscripts/morph'
+
+morph :app_morph do |m|
+  YAML::ENGINE.yamler = "psych"
+  settings = YAML.load(File.open(File.join('src', 'Deployment', 'appconfig.yml')))
+  m.template = "src/Deployment/app.erb.config"
+  m.output = "src/iqt-teamcity-test/bin/Debug/iqt-teamcity-test.exe.config"
+end
  
 Albacore.configure do |config|
   config.mstest.command = "C:/Program\ Files\ (x86)/Microsoft Visual Studio 11.0/Common7/IDE/mstest.exe"
   config.msbuild.targets = [ :Clean, :Build ]
 end
  
-task :default => [:msbuild, :mstest]
+task :default => [:app_morph, :msbuild, :mstest]
  
 desc "Builds the project using the MSBuild project files"
 msbuild :msbuild => [:assemblyinfo] do |msb|

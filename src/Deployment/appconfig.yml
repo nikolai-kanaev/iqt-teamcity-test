@@ -1,0 +1,132 @@
+﻿---
+defaults: &defaults
+  defectpropertycount: 26
+  defectexcelpath: C:\Defects\
+  completedexcelfiles: C:\Defects\CompletedExcelFiles\
+  invalidexceldefectstructure: C:\Defects\InvalidExcelDefectStructure\
+  invaliddefectformat: C:\Defects\InvalidDefectFormat\
+  invaliddefect: C:\Defects\InvalidDefect\
+  validdefect: C:\Defects\ValidDefect\
+  user: owner
+  password: kalle1
+  bindings: |
+    <wsHttpBinding>
+      <binding name="ESB_DefaultBinding" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00" bypassProxyOnLocal="false" transactionFlow="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="524288" maxReceivedMessageSize="1165536" messageEncoding="Text" textEncoding="utf-8" useDefaultWebProxy="true" allowCookies="false">
+        <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384" maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+        <reliableSession ordered="true" inactivityTimeout="00:10:00" enabled="false" />
+        <security mode="Message">
+          <transport clientCredentialType="Windows" proxyCredentialType="None" realm="" />
+          <message clientCredentialType="Windows" negotiateServiceCredential="true" algorithmSuite="Default" establishSecurityContext="true" />
+        </security>
+      </binding>
+    </wsHttpBinding>
+  client: |
+    <endpoint address="http://localhost:53336/ReportedDefects.svc" binding="wsHttpBinding" bindingConfiguration="WSHttpBinding_IReportedDefects" contract="ESB.ReportedDefects.IReportedDefects" name="WSHttpBinding_IReportedDefects">
+      <identity>
+        <dns value="localhost" />
+      </identity>
+    </endpoint>
+
+dev:
+  user: s045tt
+  password: macro1
+  bindings: |
+    <netNamedPipeBinding>
+      <binding name="netPipeBinding_Default" closeTimeout="00:01:00"
+        openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+        transactionFlow="false" hostNameComparisonMode="StrongWildcard"
+        maxBufferPoolSize="524288" maxReceivedMessageSize="11165536" maxConnections="10">
+        <security mode="Transport">
+        </security>
+      </binding>
+    </netNamedPipeBinding>
+  client: |
+    <clear/>
+    <endpoint address="net.pipe://esb/ReportedDefects.svc"
+      binding="netNamedPipeBinding"
+      bindingConfiguration="netPipeBinding_Default"
+      contract="ESB.ReportedDefects.IReportedDefects"
+      name="netPipeBinding_ReportedDefects">
+      <identity>
+        <dns value="localhost" />
+      </identity>
+    </endpoint>
+  <<: *defaults
+  
+test:
+  user: s045tt
+  password: macro1
+  bindings: |
+    <netNamedPipeBinding>
+      <binding name="netPipeBinding_Default" closeTimeout="00:01:00"
+        openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+        transactionFlow="false" hostNameComparisonMode="StrongWildcard"
+        maxBufferPoolSize="524288" maxReceivedMessageSize="11165536" maxConnections="10">
+        <security mode="Transport">
+        </security>
+      </binding>
+    </netNamedPipeBinding>
+  client: |
+    <clear/>
+    <endpoint address="net.pipe://esb/ReportedDefects.svc"
+      binding="netNamedPipeBinding"
+      bindingConfiguration="netPipeBinding_Default"
+      contract="ESB.ReportedDefects.IReportedDefects"
+      name="netPipeBinding_ReportedDefects">
+      <identity>
+        <dns value="localhost" />
+      </identity>
+    </endpoint>
+  <<: *defaults
+  
+acceptance:
+  user: s045tt
+  password: macro1
+  bindings: |
+    <netNamedPipeBinding>
+      <binding name="netPipeBinding_Default" closeTimeout="00:01:00"
+        openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+        transactionFlow="false" hostNameComparisonMode="StrongWildcard"
+        maxBufferPoolSize="524288" maxReceivedMessageSize="11165536" maxConnections="10">
+        <security mode="Transport">
+        </security>
+      </binding>
+    </netNamedPipeBinding>
+  client: |
+    <clear/>
+    <endpoint address="net.pipe://services/ReportedDefects.svc"
+      binding="netNamedPipeBinding"
+      bindingConfiguration="netPipeBinding_Default"
+      contract="ESB.ReportedDefects.IReportedDefects"
+      name="netPipeBinding_ReportedDefects">
+      <identity>
+        <dns value="localhost" />
+      </identity>
+    </endpoint>
+  <<: *defaults
+
+production:
+  user: s045tt
+  password: X
+  bindings: |
+    <netNamedPipeBinding>
+      <binding name="netPipeBinding_Default" closeTimeout="00:01:00"
+        openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+        transactionFlow="false" hostNameComparisonMode="StrongWildcard"
+        maxBufferPoolSize="524288" maxReceivedMessageSize="11165536" maxConnections="10">
+        <security mode="Transport">
+        </security>
+      </binding>
+    </netNamedPipeBinding>
+  client: |
+    <clear/>
+    <endpoint address="net.pipe://services/ReportedDefects.svc"
+      binding="netNamedPipeBinding"
+      bindingConfiguration="netPipeBinding_Default"
+      contract="ESB.ReportedDefects.IReportedDefects"
+      name="netPipeBinding_ReportedDefects">
+      <identity>
+        <dns value="localhost" />
+      </identity>
+    </endpoint>
+  <<: *defaults

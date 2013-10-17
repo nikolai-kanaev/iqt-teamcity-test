@@ -13,7 +13,7 @@ morph :app_morph do |m|
   YAML::ENGINE.yamler = "psych"
   settings = YAML.load(File.open(File.join('src', 'Deployment', 'appconfig.yml')))
   m.template = "src/Deployment/app.erb.config"
-  m.output = "src/iqt-teamcity-test/bin/Debug/iqt-teamcity-test.exe.config"
+  m.output = "src/iqt-teamcity-test/bin/Debug/someconfig.exe.config"
 end
  
 Albacore.configure do |config|

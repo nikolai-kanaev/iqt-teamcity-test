@@ -7,19 +7,17 @@ require 'version_bumper'
 require 'albacore'
 require 'erb'
 require 'yaml'
-# require 'nokogiri'
+# require 'nokogiri' why is this needed?
 
 require 'buildscripts/morph'
-
-task :my_morph do
-  
-end
+require 'buildscripts/environment'
 
 morph :app_morph do |m|
   YAML::ENGINE.yamler = "psych"
   settings = YAML.load(File.open(File.join('src', 'Deployment', 'appconfig.yml')))
   m.template = "src/Deployment/app.erb.config"
-  m.output = "src/iqt-teamcity-test/bin/Debug/someconfig.exe.config"
+  m.output = "src/iqt-teamcity-test/App.config"
+  m.settings settings[ENV_TARGET]
 end
  
 Albacore.configure do |config|
@@ -59,6 +57,6 @@ task :gittask do
   system(cmd2)
 end
 
-task :release => [:default, :gittask] do
+task :release => [:msbuild, :mstest, :gittask] do
   puts 'What happens in TeamCity stays in TeamCity.'
 end

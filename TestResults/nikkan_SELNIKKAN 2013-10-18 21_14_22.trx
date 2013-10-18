@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ff71566a-a92f-456d-b489-cc08ce6199b6" name="nikkan@SELNIKKAN 2013-10-18 21:14:22" runUser="SWEDEN\nikkan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="2dd88a72-3d51-4d4a-8859-15bd39ebbfb7">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="nikkan_SELNIKKAN 2013-10-18 21_14_22" />
+  </TestSettings>
+  <Times creation="2013-10-18T21:14:22.4978751+02:00" queuing="2013-10-18T21:14:23.0399446+02:00" start="2013-10-18T21:14:23.2229653+02:00" finish="2013-10-18T21:14:23.6370184+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="src/iqt-teamcity-test.test/bin/debug/iqt-teamcity-test.test.dll" id="e16b3363-629d-470b-4b45-adedbaaf746c">
+      <Execution id="7e13986a-934c-43ca-b174-05ad815a189c" />
+      <TestMethod codeBase="C:/Projects/iqt-teamcity-test/src/iqt-teamcity-test.Test/bin/Debug/iqt-teamcity-test.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="iqt_teamcity_test.Test.UnitTest1, iqt-teamcity-test.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="e16b3363-629d-470b-4b45-adedbaaf746c" executionId="7e13986a-934c-43ca-b174-05ad815a189c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7e13986a-934c-43ca-b174-05ad815a189c" testId="e16b3363-629d-470b-4b45-adedbaaf746c" testName="TestMethod1" computerName="SELNIKKAN" duration="00:00:00.0161825" startTime="2013-10-18T21:14:23.2929735+02:00" endTime="2013-10-18T21:14:23.5570082+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e13986a-934c-43ca-b174-05ad815a189c">
+    </UnitTestResult>
+  </Results>
+</TestRun>

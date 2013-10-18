@@ -12,6 +12,15 @@ require 'yaml'
 require 'buildscripts/morph'
 require 'buildscripts/environment'
 
+zip :zip_copy_backup do |zip|
+  puts "Zippar foldern och lägger den i C:/Backup/iqt-teamcity-test/"
+  backupfolder = "C:/Backup/iqt-teamcity-test/"
+  FileUtils.mkdir backupfolder if File.directory?(backupfolder) == false
+  zip.directories_to_zip "src/iqt-teamcity-test/bin/debug"
+  zip.output_file = "debug.zip"
+  zip.output_path = backupfolder
+end
+
 zip :do_zip do |zip|
   zip.directories_to_zip "src/iqt-teamcity-test/bin/debug"
   zip.output_file = "debug.zip"

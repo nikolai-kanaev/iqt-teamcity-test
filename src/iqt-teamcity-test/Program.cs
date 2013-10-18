@@ -10,6 +10,7 @@ namespace iqt_teamcity_test
     {
         static void Main(string[] args)
         {
+			Console.WriteLine("Hello TeamCity!");
         }
     }
 }

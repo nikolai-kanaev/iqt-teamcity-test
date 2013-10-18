@@ -12,6 +12,12 @@ require 'yaml'
 require 'buildscripts/morph'
 require 'buildscripts/environment'
 
+zip :do_zip do |zip|
+  zip.directories_to_zip "src/iqt-teamcity-test/bin/debug"
+  zip.output_file = "debug.zip"
+  zip.output_path = "./"
+end
+
 morph :app_morph do |m|
   YAML::ENGINE.yamler = "psych"
   settings = YAML.load(File.open(File.join('src', 'Deployment', 'appconfig.yml')))
@@ -25,7 +31,7 @@ Albacore.configure do |config|
   config.msbuild.targets = [ :Clean, :Build ]
 end
  
-task :default => [:app_morph, :msbuild, :mstest]
+task :default => [:app_morph, :msbuild, :mstest, :do_zip]
  
 desc "Builds the project using the MSBuild project files"
 msbuild :msbuild => [:assemblyinfo] do |msb|
@@ -57,6 +63,6 @@ task :gittask do
   system(cmd2)
 end
 
-task :release => [:msbuild, :mstest, :gittask] do
+task :release => [:msbuild, :mstest, :do_zip, :gittask] do
   puts 'What happens in TeamCity stays in TeamCity.'
 end

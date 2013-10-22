@@ -40,7 +40,7 @@ Albacore.configure do |config|
   config.msbuild.targets = [ :Clean, :Build ]
 end
  
-task :default => [:app_morph, :msbuild, :mstest, :do_zip]
+task :default => [:app_morph, :msbuild, :mstest, :do_zip, :zip_copy_backup]
  
 desc "Builds the project using the MSBuild project files"
 msbuild :msbuild => [:assemblyinfo] do |msb|

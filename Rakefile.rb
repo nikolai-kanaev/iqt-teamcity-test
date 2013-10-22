@@ -48,7 +48,7 @@ msbuild :msbuild => [:assemblyinfo] do |msb|
   msb.solution = "src/iqt-teamcity-test.sln"
 end
  
-desc "Runs the tests in the AlbacoreDemo.Tests project"
+desc "Runs the tests"
 mstest :mstest => [:msbuild] do |mstest|
   mstest.assemblies "src/iqt-teamcity-test.Test/bin/Debug/iqt-teamcity-test.Test.dll"
 end

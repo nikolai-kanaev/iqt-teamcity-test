@@ -23,7 +23,7 @@ end
 
 zip :do_zip do |zip|
   zip.directories_to_zip "src/iqt-teamcity-test/bin/debug"
-  zip.output_file = "debug.zip"
+  zip.output_file = "debug.zip#{bumper_version.to_s}"
   zip.output_path = "./"
 end
 

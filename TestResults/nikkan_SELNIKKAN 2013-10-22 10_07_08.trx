@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="3bc6a5b2-b629-4e3e-89e5-58a484b80a22" name="nikkan@SELNIKKAN 2013-10-22 10:07:08" runUser="SWEDEN\nikkan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="470ed4d9-d7bb-48b4-92a8-dec3dc97b1cf">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="nikkan_SELNIKKAN 2013-10-22 10_07_08" />
+  </TestSettings>
+  <Times creation="2013-10-22T10:07:08.2750879+02:00" queuing="2013-10-22T10:07:08.7411640+02:00" start="2013-10-22T10:07:08.8972352+02:00" finish="2013-10-22T10:07:09.2842462+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="src/iqt-teamcity-test.test/bin/debug/iqt-teamcity-test.test.dll" id="e16b3363-629d-470b-4b45-adedbaaf746c">
+      <Execution id="b8c2cdf8-4257-4aba-a7f3-7779eb5e1fc1" />
+      <TestMethod codeBase="C:/Projects/iqt-teamcity-test/src/iqt-teamcity-test.Test/bin/Debug/iqt-teamcity-test.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="iqt_teamcity_test.Test.UnitTest1, iqt-teamcity-test.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="e16b3363-629d-470b-4b45-adedbaaf746c" executionId="b8c2cdf8-4257-4aba-a7f3-7779eb5e1fc1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b8c2cdf8-4257-4aba-a7f3-7779eb5e1fc1" testId="e16b3363-629d-470b-4b45-adedbaaf746c" testName="TestMethod1" computerName="SELNIKKAN" duration="00:00:00.0529075" startTime="2013-10-22T10:07:08.9532162+02:00" endTime="2013-10-22T10:07:09.2192414+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b8c2cdf8-4257-4aba-a7f3-7779eb5e1fc1">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Fail failed. </Message>
+          <StackTrace>   at iqt_teamcity_test.Test.UnitTest1.TestMethod1() in c:\Projects\iqt-teamcity-test\src\iqt-teamcity-test.Test\UnitTest1.cs:line 12
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

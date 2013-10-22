@@ -7,7 +7,7 @@ require 'version_bumper'
 require 'albacore'
 require 'erb'
 require 'yaml'
-# require 'nokogiri' why is this needed?
+# require 'nokogiri' why is this needed? FOR XML SERIALIZATION
 
 require 'buildscripts/morph'
 require 'buildscripts/environment'

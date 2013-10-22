@@ -66,7 +66,7 @@ end
 task :gittask do
   cmd = 'git add -A'
   system(cmd)
-  cmd1 = 'git commit -m "auto commit"'
+  cmd1 = 'git commit -am "Released version #{bumper_version.to_s}'
   system(cmd1)
   cmd2 = 'git push origin master'
   system(cmd2)

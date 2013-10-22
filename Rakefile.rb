@@ -17,13 +17,13 @@ zip :zip_copy_backup do |zip|
   backupfolder = "C:/Backup/iqt-teamcity-test/"
   FileUtils.mkdir backupfolder if File.directory?(backupfolder) == false
   zip.directories_to_zip "src/iqt-teamcity-test/bin/debug"
-  zip.output_file = "debug.zip"
+  zip.output_file = "debug#{bumper_version.to_s}.zip"
   zip.output_path = backupfolder
 end
 
 zip :do_zip do |zip|
   zip.directories_to_zip "src/iqt-teamcity-test/bin/debug"
-  zip.output_file = "debug.zip#{bumper_version.to_s}"
+  zip.output_file = "debug#{bumper_version.to_s}.zip"
   zip.output_path = "./"
 end
 

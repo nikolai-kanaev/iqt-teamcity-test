@@ -64,14 +64,12 @@ assemblyinfo :assemblyinfo do |asm|
 end
 
 task :gittask do
-  cmd = 'git add -A'
-  system(cmd)
-  #cmd1 = 'git commit -am "Released version #{bumper_version.to_s}'
-  #system(cmd1)
+  puts 'adding'
+  `git add -A`
   puts 'committing'
   `git commit -am "Released version #{bumper_version.to_s}"` 
-  cmd2 = 'git push origin master'
-  system(cmd2)
+  puts 'pushing'
+  `git push origin master`
 end
 
 task :release => [:msbuild, :mstest, :do_zip, :gittask] do
